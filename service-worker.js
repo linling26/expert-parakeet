@@ -1,12 +1,12 @@
 const CACHE_NAME = 'pwa-cache-v1';
 const urlsToCache = [
-    './',
-    './index.html',
-    './style.css',
-    './main.js',
-    './manifest.json',
-    './icon-192x192.png',
-    './icon-512x512.png'
+    '/expert-parakeet/',
+    '/expert-parakeet/index.html',
+    '/expert-parakeet/style.css',
+    '/expert-parakeet/main.js',
+    '/expert-parakeet/manifest.json',
+    '/expert-parakeet/icon-192x192.png',
+    '/expert-parakeet/icon-512x512.png'
 ];
 
 // インストール時にキャッシュする
