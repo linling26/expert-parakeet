@@ -1,6 +1,6 @@
 {
-    "name": "スマホ向けWebアプリ",
-    "short_name": "Webアプリ",
+    "name": "SteamHoard 塵も積もればギアとなる",
+    "short_name": "SteamHoard",
     "start_url": "/expert-parakeet/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
