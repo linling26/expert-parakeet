@@ -1,7 +1,7 @@
 {
     "name": "スマホ向けWebアプリ",
     "short_name": "Webアプリ",
-    "start_url": "/index.html",
+    "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#282c34",
