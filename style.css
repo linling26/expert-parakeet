@@ -21,3 +21,15 @@ canvas {
     font-size: 18px;
     line-height: 1.5;
 }
+
+@media (max-width: 600px) {
+    #fileContent {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    #fileContent {
+        font-size: 14px;
+    }
+}
