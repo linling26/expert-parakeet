@@ -1,6 +1,3 @@
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
-
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/expert-parakeet/service-worker.js').then((registration) => {
@@ -10,6 +7,9 @@ if ('serviceWorker' in navigator) {
         });
     });
 }
+
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
 
 // Canvasサイズを画面に合わせる
 canvas.width = window.innerWidth;
