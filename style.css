@@ -23,6 +23,8 @@ body {
     padding: 20px;
     box-sizing: border-box; /* パディングも含めたサイズ調整 */
     overflow-y: auto;       /* テキストが多い場合にスクロール可能 */
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 @media (max-width: 600px) {
