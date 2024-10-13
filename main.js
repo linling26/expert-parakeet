@@ -46,5 +46,21 @@ function gameLoop() {
 
     requestAnimationFrame(gameLoop);
 }
-
 gameLoop();
+
+// テキスト読み込み
+function loadText() {
+    fetch('/expert-parakeet/sample.txt') // sample.txt のURLを指定（同一ドメインに配置）
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('テキストファイルの読み込みに失敗しました');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('fileContent').textContent = data;
+        })
+        .catch(error => {
+            console.error('エラー:', error);
+        });
+}
