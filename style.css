@@ -7,3 +7,17 @@ canvas {
     display: block;
     background-color: #282c34;
 }
+
+#fileContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    font-size: 18px;
+    line-height: 1.5;
+}
