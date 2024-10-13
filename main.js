@@ -48,19 +48,41 @@ function gameLoop() {
 }
 gameLoop();
 
-// テキスト読み込み
-function loadText() {
-    fetch('/expert-parakeet/sample.txt') // sample.txt のURLを指定（同一ドメインに配置）
+const toggleButton = document.getElementById('toggleButton');
+const topHalf = document.getElementById('topHalf');
+const fileContent = document.getElementById('fileContent');
+
+let isTextLoaded = false; // 一度だけファイルを読み込むためのフラグ
+
+toggleButton.addEventListener('click', () => {
+    if (topHalf.style.display === 'none') {
+        // 初回クリック時にファイルを読み込み
+        if (!isTextLoaded) {
+            loadTextFile('sample.txt');
+            isTextLoaded = true;
+        }
+        topHalf.style.display = 'block'; // テキスト領域を表示
+        toggleButton.textContent = 'テキストを非表示';
+    } else {
+        topHalf.style.display = 'none'; // テキスト領域を非表示
+        toggleButton.textContent = 'テキストを表示';
+    }
+});
+
+// テキストファイルを読み込む関数
+function loadTextFile(filePath) {
+    fetch(filePath)
         .then(response => {
             if (!response.ok) {
-                throw new Error('テキストファイルの読み込みに失敗しました');
+                throw new Error('ファイルの読み込みに失敗しました');
             }
             return response.text();
         })
         .then(data => {
-            document.getElementById('fileContent').textContent = data;
+            fileContent.textContent = data; // テキストを表示
         })
         .catch(error => {
             console.error('エラー:', error);
+            fileContent.textContent = 'ファイルの読み込みに失敗しました';
         });
 }
