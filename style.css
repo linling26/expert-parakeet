@@ -3,22 +3,26 @@ body {
     overflow: hidden;
 }
 
-canvas {
+#canvas {
     display: block;
     background-color: #282c34;
+    margin-top: 50%;       /* 上半分の領域の分だけ下げる */
+    padding: 20px;
 }
 
 #fileContent {
-    width: 100%;
-    high: 50%
-    margin: 20px auto;
-    padding: 10px;
-    background-color: #e0e0e0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    word-wrap: break-word;
-    white-space: pre-wrap;
+    position: fixed;       /* 画面に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;           /* 横幅いっぱいに表示 */
+    height: 50%;           /* 画面の上半分を占める */
+    background-color: #f0f0f0;
+    border-bottom: 2px solid #ccc;
+    font-size: 18px;
     line-height: 1.5;
+    padding: 20px;
+    box-sizing: border-box; /* パディングも含めたサイズ調整 */
+    overflow-y: auto;       /* テキストが多い場合にスクロール可能 */
 }
 
 @media (max-width: 600px) {
