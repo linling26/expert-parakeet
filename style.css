@@ -8,7 +8,7 @@ canvas {
     background-color: #282c34;
 }
 
-#fileContainer {
+#fileContent {
     width: 100%;
     max-width: 600px;
     margin: 20px auto;
