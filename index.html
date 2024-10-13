@@ -8,9 +8,10 @@
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div id="textContainer"></div>
-    <button id="toggleButton" onclick="loadText()">テキストを表示</button>
-    <pre id="fileContent"></pre>
+    <button id="toggleButton">テキストを表示</button>
+    <div id="topHalf" class="hidden">
+        <pre id="fileContent">ここにテキストが表示されます。</pre>
+    </div>
     
     <canvas id="gameCanvas"></canvas>
     <script src="main.js"></script>
