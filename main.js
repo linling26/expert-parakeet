@@ -1,13 +1,3 @@
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/expert-parakeet/service-worker.js').then((registration) => {
-            console.log('ServiceWorker registered:', registration.scope);
-        }).catch((error) => {
-            console.log('ServiceWorker registration failed:', error);
-        });
-    });
-}
-
 const toggleButton = document.getElementById('toggleButton');
 const textContainer = document.getElementById('textContainer');
 const fileContent = document.getElementById('fileContent');
