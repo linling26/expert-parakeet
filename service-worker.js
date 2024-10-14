@@ -4,7 +4,6 @@ let CACHE_NAME = 'my-cache'; // デフォルトのキャッシュ名
 self.addEventListener('message', (event) => {
     if (event.data && event.data.type === 'SET_VERSION') {
         CACHE_NAME = `my-cache-${event.data.version}`;
-        console.log(`CACHE_NAME set to: ${CACHE_NAME}`);
     }
 });
 
