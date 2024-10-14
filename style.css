@@ -1,33 +1,22 @@
-body {
-    margin: 0;
-    overflow: hidden;
-}
-
-#canvas {
-    display: block;
-    background-color: #282c34;
-    margin-top: 50%;       /* 上半分の領域の分だけ下げる */
-    padding: 20px;
-}
-
-#topHalf {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;          /* 画面の上半分を占める */
-    background-color: #f0f0f0;
-    border-bottom: 2px solid #ccc;
+/* テキスト表示領域 */
+#textContainer {
+    width: 80%;             /* 横幅80% */
+    margin: 20px auto;      /* 中央に配置 */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
     font-size: 18px;
-    line-height: 1.5;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;      /* 多いテキストをスクロール可能に */
+    line-height: 1.6;
+    display: none;           /* 初期状態は非表示 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* ボタンのスタイル */
 button {
-    margin: 10px;
+    display: block;
+    margin: 20px auto;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
 }
