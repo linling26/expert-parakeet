@@ -16,8 +16,8 @@ body {
     height: 100%;
     background-image: url('/expert-parakeet/A_vibrant_steampunk-themed_background_featuring_de.png');
     background-size: cover;
-    background-position: center;
-    filter: blur(2px); /* ぼかし効果 */
+    background-position: top;
+    filter: blur(1px); /* ぼかし効果 */
     z-index: -1; /* 背景を最背面に */
 }
     
