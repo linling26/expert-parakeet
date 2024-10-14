@@ -50,8 +50,8 @@
 .steampunk-button {
     display: inline-block;
     margin: 10px auto;
-    padding: 8px 20px;  /* パディングを小さく */
-    font-size: 16px;    /* フォントサイズを小さく */
+    padding: 5px 5px;  /* パディングを小さく */
+    font-size: 10px;    /* フォントサイズを小さく */
     font-family: 'Zen Old Mincho', serif;
     cursor: pointer;
     color: #f8f1e7;
@@ -61,32 +61,6 @@
     box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.8);
     transition: all 0.2s ease;
     position: relative;
-}
-
-.steampunk-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -15px;
-    width: 12px;
-    height: 12px;
-    background: radial-gradient(circle, #c39d5d, #8a5e27);
-    border-radius: 50%;
-    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.8);
-    transform: translateY(-50%);
-}
-
-.steampunk-button::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -15px;
-    width: 12px;
-    height: 12px;
-    background: radial-gradient(circle, #c39d5d, #8a5e27);
-    border-radius: 50%;
-    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.8);
-    transform: translateY(-50%);
 }
 
 .steampunk-button:hover {
