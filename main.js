@@ -20,7 +20,7 @@ toggleButton.addEventListener('click', () => {
 
     if (isHidden) {
         if (!isTextLoaded) {
-            loadTextFile('/documents/sample.txt');
+            loadTextFile('/expert-parakeet/documents/sample.txt');
             isTextLoaded = true;
         }
         textContainer.style.display = 'block';
