@@ -14,6 +14,16 @@ self.addEventListener('install', (event) => {
     );
 });
 
+// キャッシュからリソースを取得
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        caches.match(event.request).then((response) => {
+            return response || fetch(event.request);
+            );
+        })
+    );
+});
+
 // 古いキャッシュを削除
 self.addEventListener('activate', (event) => {
     event.waitUntil(
