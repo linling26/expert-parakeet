@@ -20,13 +20,13 @@ toggleButton.addEventListener('click', () => {
 
     if (isHidden) {
         if (!isTextLoaded) {
-            loadTextFile('sample.txt'); // 初回のみファイルを読み込む
+            loadTextFile('sample.txt');
             isTextLoaded = true;
         }
-        textContainer.style.display = 'block'; // テキストを表示
+        textContainer.style.display = 'block';
         toggleButton.textContent = '▲ テキストを非表示';
     } else {
-        textContainer.style.display = 'none'; // テキストを非表示
+        textContainer.style.display = 'none';
         toggleButton.textContent = '▼ テキストを表示';
     }
 });
