@@ -30,8 +30,8 @@ body {
 /* テキスト表示領域：古紙風 */
 .steampunk-box {
     width: 95%;
-    height: 60vh;
-    margin: 10px auto;
+    height: 50vh;
+    margin: 5px auto;
     padding: 10px;
     background: linear-gradient(
         135deg,
@@ -113,7 +113,7 @@ body {
 /* 小さめのスチームパンク風ボタン */
 .steampunk-button {
     display: inline-block;
-    margin: 10px auto;
+    margin: 5px auto;
     padding: 5px 5px;  /* パディングを小さく */
     font-size: 10px;    /* フォントサイズを小さく */
     font-family: 'Zen Old Mincho', serif;
