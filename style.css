@@ -13,6 +13,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow-y: auto;        /* 縦方向のスクロールを有効 */
     box-sizing: border-box;  /* パディングを含めたサイズ調整 */
+    font-family: 'Zen Old Mincho', serif; /* Zen Old Minchoの適用 */
 }
 
 /* テキストコンテンツのスタイル */
