@@ -22,11 +22,33 @@
     white-space: pre-wrap;      /* 改行を保持しつつ自動改行 */
 }
 
-/* ボタンのスタイル */
-button {
+/* スタイリッシュなボタン */
+#toggleButton {
     display: block;
     margin: 20px auto;
-    padding: 10px 20px;
+    padding: 10px 30px;
     font-size: 18px;
+    font-family: 'Zen Old Mincho', serif;
     cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#toggleButton:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#toggleButton:active {
+    background-color: #3e8e41;
+    transform: scale(0.95);
+}
+
+/* テキストが非表示時のボタン */
+.hidden {
+    display: none;
 }
