@@ -51,22 +51,24 @@ gameLoop();
 const toggleButton = document.getElementById('toggleButton');
 const topHalf = document.getElementById('topHalf');
 const fileContent = document.getElementById('fileContent');
+const showTextButton = document.getElementById('showTextButton');
 
 let isTextLoaded = false; // 一度だけファイルを読み込むためのフラグ
 
-toggleButton.addEventListener('click', () => {
-    if (topHalf.style.display === 'none') {
-        // 初回クリック時にファイルを読み込み
-        if (!isTextLoaded) {
-            loadTextFile('sample.txt');
-            isTextLoaded = true;
-        }
-        topHalf.style.display = 'block'; // テキスト領域を表示
-        toggleButton.textContent = 'テキストを非表示';
-    } else {
-        topHalf.style.display = 'none'; // テキスト領域を非表示
-        toggleButton.textContent = 'テキストを表示';
+// 「テキストを表示」ボタンのクリックイベント
+showTextButton.addEventListener('click', () => {
+    if (!isTextLoaded) {
+        loadTextFile('sample.txt'); // 初回のみファイルを読み込む
+        isTextLoaded = true;
     }
+    topHalf.style.display = 'block'; // 上半分の領域を表示
+    showTextButton.style.display = 'none'; // 「テキストを表示」ボタンを非表示
+});
+
+// 「テキストを非表示」ボタンのクリックイベント
+toggleButton.addEventListener('click', () => {
+    topHalf.style.display = 'none'; // 上半分の領域を非表示
+    showTextButton.style.display = 'inline-block'; // 「テキストを表示」ボタンを再表示
 });
 
 // テキストファイルを読み込む関数
@@ -79,10 +81,11 @@ function loadTextFile(filePath) {
             return response.text();
         })
         .then(data => {
-            fileContent.textContent = data; // テキストを表示
+            fileContent.textContent = data; // 読み込んだテキストを表示
         })
         .catch(error => {
             console.error('エラー:', error);
             fileContent.textContent = 'ファイルの読み込みに失敗しました';
         });
 }
+
