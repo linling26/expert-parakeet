@@ -45,7 +45,7 @@ body {
         inset 0 1px 2px rgba(0, 0, 0, 0.1), 
         4px 4px 12px rgba(0, 0, 0, 0.4);
     font-family: 'KouzanMouhitu', serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.8;
     color: #4b3e2e;
     position: relative;
@@ -107,6 +107,7 @@ body {
 #fileContent {
     overflow-wrap: break-word;  /* 単語の途中で改行 */
     white-space: pre-wrap;      /* 改行を保持しつつ自動改行 */
+    font-family: 'KouzanMouhitu', serif;
 }
 
 /* 小さめのスチームパンク風ボタン */
