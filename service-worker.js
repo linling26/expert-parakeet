@@ -1,4 +1,4 @@
-const CACHE_NAME = `my-cache-${version}`;
+const CACHE_NAME = `my-cache-${version}`; // テンプレートリテラルで正しく囲む
 
 // インストール時にキャッシュを追加
 self.addEventListener('install', (event) => {
@@ -29,6 +29,7 @@ self.addEventListener('activate', (event) => {
     );
 });
 
+// リソースのフェッチ処理
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request).then((response) => {
