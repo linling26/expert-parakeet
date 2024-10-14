@@ -1,8 +1,14 @@
+/* フォント設定 */
+@font-face {
+    font-family: 'KouzanMouhitu'; /* フォント名を定義 */
+    src: url('./fonts/KouzanMouhitu.ttf') format('truetype');
+}
+
 /* ページ全体の背景画像設定 */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Zen Old Mincho', serif;
+    font-family: 'KouzanMouhitu', serif;
     position: relative;
     overflow: hidden;
 }
