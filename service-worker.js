@@ -1,13 +1,4 @@
 const CACHE_NAME = `my-cache-${version}`;
-const urlsToCache = [
-    '/expert-parakeet/',
-    '/expert-parakeet/index.html',
-    '/expert-parakeet/style.css',
-    '/expert-parakeet/main.js',
-    '/expert-parakeet/manifest.json',
-    '/expert-parakeet/icon-192x192.png',
-    '/expert-parakeet/icon-512x512.png'
-];
 
 // インストール時にキャッシュを追加
 self.addEventListener('install', (event) => {
