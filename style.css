@@ -1,7 +1,7 @@
 /* フォント設定 */
 @font-face {
     font-family: 'KouzanMouhitu'; /* フォント名を定義 */
-    src: url('./fonts/KouzanMouhitu.ttf') format('truetype');
+    src: url('./fonts/KouzanMouhituFont10.ttf') format('truetype');
 }
 
 /* ページ全体の背景画像設定 */
