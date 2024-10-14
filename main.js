@@ -12,20 +12,22 @@ const toggleButton = document.getElementById('toggleButton');
 const textContainer = document.getElementById('textContainer');
 const fileContent = document.getElementById('fileContent');
 
-let isTextLoaded = false; // 一度だけファイルを読み込むためのフラグ
+let isTextLoaded = false;
 
 // ボタンのクリックでテキストの表示・非表示を切り替える
 toggleButton.addEventListener('click', () => {
-    if (textContainer.style.display === 'none') {
+    const isHidden = textContainer.style.display === 'none';
+
+    if (isHidden) {
         if (!isTextLoaded) {
             loadTextFile('sample.txt'); // 初回のみファイルを読み込む
             isTextLoaded = true;
         }
         textContainer.style.display = 'block'; // テキストを表示
-        toggleButton.textContent = 'テキストを非表示';
+        toggleButton.textContent = '▲ テキストを非表示';
     } else {
         textContainer.style.display = 'none'; // テキストを非表示
-        toggleButton.textContent = 'テキストを表示';
+        toggleButton.textContent = '▼ テキストを表示';
     }
 });
 
@@ -39,11 +41,12 @@ function loadTextFile(filePath) {
             return response.text();
         })
         .then(data => {
-            fileContent.textContent = data; // 読み込んだテキストを表示
+            fileContent.textContent = data;
         })
         .catch(error => {
             console.error('エラー:', error);
             fileContent.textContent = 'ファイルの読み込みに失敗しました';
         });
 }
+
 
