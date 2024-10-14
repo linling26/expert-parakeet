@@ -1,6 +1,6 @@
 /* テキスト表示領域 */
 #textContainer {
-    width: 90%;             /* 横幅80% */
+    width: 98%;
     height: 60vh;           /* 画面の60%の高さ */
     margin: 20px auto;      /* 水平方向の中央揃え */
     padding: 10px;
