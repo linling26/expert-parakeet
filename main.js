@@ -20,7 +20,7 @@ toggleButton.addEventListener('click', () => {
 
     if (isHidden) {
         if (!isTextLoaded) {
-            loadTextFile('/fonts/sample.txt');
+            loadTextFile('/documents/sample.txt');
             isTextLoaded = true;
         }
         textContainer.style.display = 'block';
