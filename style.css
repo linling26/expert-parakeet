@@ -23,7 +23,6 @@ body {
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;      /* 多いテキストをスクロール可能に */
-    display: none;         /* 初期状態は非表示 */
 }
 
 .hidden {
