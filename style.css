@@ -30,7 +30,7 @@ body {
 /* テキスト表示領域：古紙風 */
 .steampunk-box {
     width: 95%;
-    height: 50vh;
+    height: 60vh;
     margin: 10px auto;
     padding: 10px;
     background: linear-gradient(
