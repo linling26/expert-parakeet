@@ -1,11 +1,19 @@
-const CACHE_NAME = `my-cache-${version}`; // テンプレートリテラルで正しく囲む
+let CACHE_NAME = 'my-cache'; // デフォルトのキャッシュ名
+
+// メッセージを受け取り、バージョンをセット
+self.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'SET_VERSION') {
+        CACHE_NAME = `my-cache-${event.data.version}`;
+        console.log(`CACHE_NAME set to: ${CACHE_NAME}`);
+    }
+});
 
 // インストール時にキャッシュを追加
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             return cache.addAll([
-                '/expert-parakeet',
+                '/expert-parakeet/',
                 '/expert-parakeet/index.html',
                 '/expert-parakeet/style.css',
                 '/expert-parakeet/main.js'
