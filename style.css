@@ -21,24 +21,35 @@ body {
     z-index: -1; /* 背景を最背面に */
 }
     
-/* テキスト表示領域：古い本のページ風 */
+/* テキスト表示領域：古紙風 */
 .steampunk-box {
-    width: 90%;
+    width: 95%;
     height: 50vh;
     margin: 10px auto;
     padding: 10px;
-    background: linear-gradient(135deg, #fdf5e6, #f8ecd1 40%, #f2d8b6 100%);
-    border: 1px solid #c4a484;
+    background: linear-gradient(
+        135deg,
+        #f8f4e3 0%,
+        #e6d8b4 40%,
+        #d8c396 100%
+    );
+    border: 1px solid #a0865b;
     border-radius: 15px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 4px 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+        inset 0 1px 2px rgba(0, 0, 0, 0.1), 
+        4px 4px 12px rgba(0, 0, 0, 0.4);
     font-family: 'Zen Old Mincho', serif;
     font-size: 18px;
     line-height: 1.8;
     color: #4b3e2e;
+    position: relative;
     overflow-y: auto;
+    background-blend-mode: multiply;
+    background-size: cover;
+    display: none;
 }
 
-/* 内側の影と微妙な汚れ感を追加 */
+/* 擦れた質感の追加 */
 .steampunk-box::before {
     content: '';
     position: absolute;
@@ -46,13 +57,37 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 10%, transparent 70%);
-    border-radius: 15px;
+    background: radial-gradient(
+        circle, 
+        rgba(0, 0, 0, 0.05) 10%, 
+        transparent 80%
+    );
+    opacity: 0.6;
     pointer-events: none;
     z-index: 1;
 }
 
-/* テキストが多い場合のスクロールバーのカスタマイズ */
+/* 小さなノイズで古紙感を強調 */
+.steampunk-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.02),
+        rgba(0, 0, 0, 0.02) 2px,
+        rgba(255, 255, 255, 0) 2px,
+        rgba(255, 255, 255, 0) 4px
+    );
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* スクロールバーのカスタマイズ */
 .steampunk-box::-webkit-scrollbar {
     width: 8px;
 }
