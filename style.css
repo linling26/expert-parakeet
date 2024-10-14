@@ -12,7 +12,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow-wrap: break-word;  /* 単語が長すぎる場合の自動改行 */
     white-space: pre-wrap;      /* 改行を保持しつつ自動改行 */
-    max-height: 400px;          /* 最大高さを制限 */
+    max-height: 80%;          /* 最大高さを制限 */
     overflow-y: auto;           /* 縦方向のスクロールを有効 */
 }
 
