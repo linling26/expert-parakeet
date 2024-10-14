@@ -3,15 +3,24 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Zen Old Mincho', serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 背景画像のぼかし設定 */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('/expert-parakeet/A_vibrant_steampunk-themed_background_featuring_de.png');
-    background-size: cover;    /* 画面全体をカバーする */
-    background-position: top; /* 画像を中央に配置 */
-    background-attachment: fixed; /* 背景を固定 */
-    background-repeat: no-repeat; /* 繰り返さない */
+    background-size: cover;
+    background-position: center;
     filter: blur(8px); /* ぼかし効果 */
     z-index: -1; /* 背景を最背面に */
 }
-
+    
 /* スチームパンク風のテキスト表示領域 */
 .steampunk-box {
     width: 90%;
