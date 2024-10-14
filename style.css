@@ -1,6 +1,7 @@
 /* テキスト表示領域 */
 #textContainer {
     width: 80%;             /* 横幅80% */
+    high: 50%;             /* 高さ80% */
     margin: 20px auto;      /* 中央に配置 */
     padding: 10px;
     border: 1px solid #ccc;
