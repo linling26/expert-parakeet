@@ -21,51 +21,45 @@ body {
     z-index: -1; /* 背景を最背面に */
 }
     
-/* スチームパンク風のテキスト表示領域 */
+/* テキスト表示領域：古い本のページ風 */
 .steampunk-box {
-    width: 90%;
-    height: 50vh;
-    margin: 10px auto;
-    padding: 10px;
-    background: #fffaf0;
-    border: 4px solid #8a5e27;
+    width: 80%;
+    height: 60vh;
+    margin: 20px auto;
+    padding: 15px;
+    background: linear-gradient(135deg, #fdf5e6, #f8ecd1 40%, #f2d8b6 100%);
+    border: 1px solid #c4a484;
     border-radius: 15px;
-    overflow-y: auto; /* 縦方向のスクロール */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 4px 4px 10px rgba(0, 0, 0, 0.3);
     font-family: 'Zen Old Mincho', serif;
     font-size: 18px;
     line-height: 1.8;
-    position: relative;
-    display: none;
+    color: #4b3e2e;
+    overflow-y: auto;
 }
 
-/* テキストコンテンツのスタイル */
-#fileContent {
-    overflow-wrap: break-word;  /* 単語の途中で改行 */
-    white-space: pre-wrap;      /* 改行を保持しつつ自動改行 */
+/* 内側の影と微妙な汚れ感を追加 */
+.steampunk-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 10%, transparent 70%);
+    border-radius: 15px;
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* カスタムスクロールバー（WebKit対応） */
+/* テキストが多い場合のスクロールバーのカスタマイズ */
 .steampunk-box::-webkit-scrollbar {
-    width: 6px; /* スクロールバーの幅を狭くする */
-}
-
-.steampunk-box::-webkit-scrollbar-track {
-    background: transparent; /* トラック部分を透明に */
+    width: 8px;
 }
 
 .steampunk-box::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.3); /* サム（つまみ）部分を半透明に */
-    border-radius: 10px; /* つまみを丸くする */
-}
-
-.steampunk-box::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.5); /* ホバー時のつまみの色 */
-}
-
-/* Firefox対応のカスタムスクロールバー */
-.steampunk-box {
-    scrollbar-width: thin; /* 細いスクロールバー */
-    scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* サムとトラックの色 */
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
 }
 
 /* 小さめのスチームパンク風ボタン */
