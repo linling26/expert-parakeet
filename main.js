@@ -14,11 +14,41 @@ const fileContent = document.getElementById('fileContent');
 let isTextLoaded = false;
 
 // ボタンのクリックでテキスを読み込む
+const GITHUB_API_URL = 'https://api.github.com/repos/linling26/expert-parakeet/contents/documents';
+
+// GitHub APIを使ってdocumentsフォルダの内容を取得
 loadButton.addEventListener('click', () => {
-    
-    loadTextFile('/expert-parakeet/documents/');
-    isTextLoaded = true;
-       
+    fetch(GITHUB_API_URL)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('フォルダの取得に失敗しました');
+            }
+            return response.json();
+        })
+        .then((files) => {
+            const txtFiles = files.filter(file => file.name.endsWith('.txt'));
+
+            if (txtFiles.length === 0) {
+                alert('テキストファイルが見つかりませんでした');
+                return;
+            }
+
+            const randomFile = txtFiles[Math.floor(Math.random() * txtFiles.length)];
+            return fetch(randomFile.download_url);
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('ファイルの読み込みに失敗しました');
+            }
+            return response.text();
+        })
+        .then((data) => {
+            fileContent.textContent = data;
+        })
+        .catch((error) => {
+            console.error('エラー:', error);
+            alert('エラーが発生しました: ' + error.message);
+        });
 });
 
 // ボタンのクリックでテキストの表示・非表示を切り替える
@@ -34,34 +64,5 @@ toggleButton.addEventListener('click', () => {
         toggleButton.textContent = '▼ テキストを表示';
     }
 });
-
-// テキストファイルを読み込む関数
-function loadTextFile(filePath) {
-    fetch(filePath)
-        .then(response => response.text())
-        .then((html) => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const links = Array.from(doc.querySelectorAll('a'))
-                .map(link => link.href)
-                .filter(href => href.endsWith('.txt'));
-
-            if (links.length === 0) {
-                alert('テキストファイルが見つかりませんでした');
-                return;
-            }
-
-            const randomFile = links[Math.floor(Math.random() * links.length)];
-            return fetch(randomFile);
-        })
-        .then(response => response.text())
-        .then(data => {
-            fileContent.textContent = data;
-        })
-        .catch(error => {
-            console.error('エラー:', error);
-            alert('ファイルの読み込みに失敗しました');
-        });
-}
 
 
