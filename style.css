@@ -102,6 +102,81 @@ body {
     border-radius: 10px;
 }
 
+/* テキスト表示領域：古紙風 */
+.steamhoard-main {
+    width: 90%;
+    height: 60vh;
+    margin: 5px auto;
+    padding: 10px;
+    background: linear-gradient(
+        135deg,
+        #f8f4e3 0%,
+        #e6d8b4 40%,
+        #d8c396 100%
+    );
+    border: 1px solid #a0865b;
+    border-radius: 15px;
+    box-shadow: 
+        inset 0 1px 2px rgba(0, 0, 0, 0.1), 
+        4px 4px 12px rgba(0, 0, 0, 0.4);
+    font-family: 'KouzanMouhitu', serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #4b3e2e;
+    position: relative;
+    overflow-y: auto;
+    background-blend-mode: multiply;
+    background-size: cover;
+}
+
+/* 擦れた質感の追加 */
+.steamhoard-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle, 
+        rgba(0, 0, 0, 0.05) 10%, 
+        transparent 80%
+    );
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 小さなノイズで古紙感を強調 */
+.steamhoard-main::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.02),
+        rgba(0, 0, 0, 0.02) 2px,
+        rgba(255, 255, 255, 0) 2px,
+        rgba(255, 255, 255, 0) 4px
+    );
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* スクロールバーのカスタマイズ */
+.steamhoard-main::-webkit-scrollbar {
+    width: 8px;
+}
+
+.steamhoard-main::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
 /* テキストコンテンツのスタイル */
 #fileContent {
     overflow-wrap: break-word;  /* 単語の途中で改行 */
