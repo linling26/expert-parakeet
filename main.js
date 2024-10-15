@@ -3,7 +3,6 @@ const textContainer = document.getElementById('textContainer');
 const fileContent = document.getElementById('fileContent');
 
 let isTextLoaded = false;
-const isHidden = textContainer.style.display === 'none';
 
 // ボタンのクリックでテキスを読み込む
 loadButton.addEventListener('click', () => {
@@ -16,6 +15,8 @@ loadButton.addEventListener('click', () => {
 // ボタンのクリックでテキストの表示・非表示を切り替える
 toggleButton.addEventListener('click', () => {
 
+    const isHidden = textContainer.style.display === 'none';
+    
     if (isHidden) {
         textContainer.style.display = 'block';
         toggleButton.textContent = '▲ テキストを非表示';
