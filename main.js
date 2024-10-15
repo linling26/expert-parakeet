@@ -66,7 +66,7 @@ toggleButton.addEventListener('click', () => {
         toggleButton.textContent = '▲ テキスト非表示';
     } else {
         textContainer.style.display = 'none';
-        toggleButton.textContent = '▼ テキスト表示　';
+        toggleButton.textContent = '▼ テキスト表示だよ　';
     }
 });
 
