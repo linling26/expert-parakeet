@@ -3,16 +3,21 @@ const textContainer = document.getElementById('textContainer');
 const fileContent = document.getElementById('fileContent');
 
 let isTextLoaded = false;
+const isHidden = textContainer.style.display === 'none';
 
 // ボタンのクリックでテキストの表示・非表示を切り替える
-toggleButton.addEventListener('click', () => {
+loadButton.addEventListener('cli ck', () => {
+    
+    loadTextFile('/expert-parakeet/documents/sample.txt');
+    isTextLoaded = true;
+       
+});
+
+// ボタンのクリックでテキストの表示・非表示を切り替える
+toggleButton.addEventListener('cli ck', () => {
     const isHidden = textContainer.style.display === 'none';
 
     if (isHidden) {
-        if (!isTextLoaded) {
-            loadTextFile('/expert-parakeet/documents/sample.txt');
-            isTextLoaded = true;
-        }
         textContainer.style.display = 'block';
         toggleButton.textContent = '▲ テキストを非表示';
     } else {
