@@ -110,21 +110,26 @@ body {
     font-family: 'KouzanMouhitu', serif;
 }
 
-/* 小さめのスチームパンク風ボタン */
+/* ボタンを横並びに配置 */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* ボタン間のスペース */
+    margin: 20px 0;
+}
+
+/* スチームパンク風ボタン */
 .steampunk-button {
-    display: inline-block;
-    margin: 5px auto;
-    padding: 5px 5px;  /* パディングを小さく */
-    font-size: 10px;    /* フォントサイズを小さく */
-    font-family: 'Zen Old Mincho', serif;
+    padding: 5px 5px;
+    font-size: 12px;
     cursor: pointer;
     color: #f8f1e7;
     background: linear-gradient(145deg, #4d4d4d, #3a3a3a);
     border: 2px solid #c39d5d;
     border-radius: 8px;
-    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.8);
-    transition: all 0.2s ease;
-    position: relative;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5), 4px 4px 8px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+    font-family: 'Zen Old Mincho', serif;
 }
 
 .steampunk-button:hover {
@@ -133,6 +138,6 @@ body {
 }
 
 .steampunk-button:active {
-    box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.9);
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.9);
     transform: scale(0.95);
 }
