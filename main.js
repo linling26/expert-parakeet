@@ -16,7 +16,7 @@ let isTextLoaded = false;
 // ボタンのクリックでテキスを読み込む
 loadButton.addEventListener('click', () => {
     
-    loadTextFile('/expert-parakeet/documents');
+    loadTextFile('/expert-parakeet/documents/');
     isTextLoaded = true;
        
 });
