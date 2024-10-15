@@ -6,6 +6,11 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+navigator.serviceWorker.addEventListener('controllerchange', () => {
+    console.log('Service Workerが更新されました');
+    window.location.reload(); // ページをリロードして新しいキャッシュを使用
+});
+
 const loadButton = document.getElementById('loadButton');
 const toggleButton = document.getElementById('toggleButton');
 const textContainer = document.getElementById('textContainer');
