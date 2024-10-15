@@ -82,6 +82,6 @@ clearCacheButton.addEventListener('click', async () => {
     const registrations = await navigator.serviceWorker.getRegistrations();
     await Promise.all(registrations.map((registration) => registration.unregister()));
 
-    alert('キャッシュがクリアされ、ページが再読み込みされます');
+    alert('キャッシュがクリアされ、ページが再読み込みされます' + cacheNames);
     window.location.reload(); // ページをリロード
 });
