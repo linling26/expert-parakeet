@@ -1,4 +1,4 @@
-let CACHE_VERSION = 'v1'; // デフォルトバージョン
+let CACHE_VERSION = `v-${Date.now()}`; // タイムスタンプでバージョンを付与
 let CACHE_NAME = `my-cache-${CACHE_VERSION}`;
 
 const CACHE_FILES = [
@@ -7,18 +7,6 @@ const CACHE_FILES = [
     '/expert-parakeet/style.css',
     '/expert-parakeet/main.js'
 ];
-
-// メッセージを受け取り、キャッシュバージョンを更新
-self.addEventListener('message', (event) => {
-    if (event.data && event.data.type === 'SET_VERSION') {
-        const newVersion = event.data.version;
-        if (newVersion !== CACHE_VERSION) {
-            CACHE_VERSION = newVersion;
-            CACHE_NAME = `my-cache-${CACHE_VERSION}`;
-            console.log(`新しいキャッシュ名: ${CACHE_NAME}`);
-        }
-    }
-});
 
 // インストール時にキャッシュを追加
 self.addEventListener('install', (event) => {
@@ -29,25 +17,21 @@ self.addEventListener('install', (event) => {
             return cache.addAll(CACHE_FILES);
         })
     );
-    self.skipWaiting(); // インストール後即時有効化
+    self.skipWaiting();
 });
 
-// アクティブ化時に古いキャッシュを削除
+// 古いキャッシュを削除
 self.addEventListener('activate', (event) => {
     console.log('Service Worker: アクティベート中...');
     event.waitUntil(
         caches.keys().then((cacheNames) => {
-            return Promise.all(
-                cacheNames.map((cacheName) => {
-                    if (cacheName !== CACHE_NAME) {
-                        console.log(`古いキャッシュを削除: ${cacheName}`);
-                        return caches.delete(cacheName);
-                    }
-                })
+            const oldCaches = cacheNames.filter(name => 
+                name.startsWith('my-cache-') && name !== CACHE_NAME
             );
+            return Promise.all(oldCaches.map((cache) => caches.delete(cache)));
         })
     );
-    return self.clients.claim(); // すべてのページに即時適用
+    self.clients.claim();
 });
 
 // リソースのフェッチ処理
