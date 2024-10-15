@@ -112,9 +112,9 @@ body {
 /* ボタンを横並びに配置 */
 .button-container {
     display: flex;
-    justify-content: center;
-    gap: 10px; /* ボタン間のスペース */
-    margin: 20px 0;
+    gap: 10px;
+    margin: 5px 0;
+    justify-content: flex-start;
 }
 
 /* スチームパンク風ボタン */
