@@ -105,7 +105,7 @@ body {
 /* テキスト表示領域：古紙風 */
 .steamhoard-main {
     width: 90%;
-    height: calc(40vh - 20px);  /* 画面の高さの40%に設定、余白を考慮 */
+    height: calc(30vh - 20px);  /* 画面の高さの40%に設定、余白を考慮 */
     margin: 5px auto;
     padding: 10px;
     background: linear-gradient(
