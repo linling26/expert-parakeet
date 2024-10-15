@@ -1,3 +1,11 @@
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((registration) => {
+            registration.update(); // Service Workerの更新を強制
+        });
+    });
+}
+
 const toggleButton = document.getElementById('toggleButton');
 const textContainer = document.getElementById('textContainer');
 const fileContent = document.getElementById('fileContent');
