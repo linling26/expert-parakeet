@@ -6,7 +6,7 @@ let isTextLoaded = false;
 const isHidden = textContainer.style.display === 'none';
 
 // ボタンのクリックでテキストの表示・非表示を切り替える
-loadButton.addEventListener('cli ck', () => {
+loadButton.addEventListener('click', () => {
     
     loadTextFile('/expert-parakeet/documents/sample.txt');
     isTextLoaded = true;
@@ -14,7 +14,7 @@ loadButton.addEventListener('cli ck', () => {
 });
 
 // ボタンのクリックでテキストの表示・非表示を切り替える
-toggleButton.addEventListener('cli ck', () => {
+toggleButton.addEventListener('click', () => {
     const isHidden = textContainer.style.display === 'none';
 
     if (isHidden) {
