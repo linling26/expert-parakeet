@@ -52,7 +52,6 @@ body {
     overflow-y: auto;
     background-blend-mode: multiply;
     background-size: cover;
-    display: none;
 }
 
 /* 擦れた質感の追加 */
