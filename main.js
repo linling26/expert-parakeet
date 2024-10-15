@@ -63,10 +63,10 @@ toggleButton.addEventListener('click', () => {
     
     if (isHidden) {
         textContainer.style.display = 'block';
-        toggleButton.textContent = '▲ テキストを非表示';
+        toggleButton.textContent = '▲ テキスト非表示';
     } else {
         textContainer.style.display = 'none';
-        toggleButton.textContent = '▼ テキストを表示　';
+        toggleButton.textContent = '▼ テキスト表示';
     }
 });
 
