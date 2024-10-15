@@ -90,7 +90,7 @@ clearCacheButton.addEventListener('click', async () => {
 
     // 削除されたキャッシュ名をアラートで表示
     const cacheList = oldCaches.join('\n');
-    alert(`以下のキャッシュが削除されました:\n${cacheList}`);
+    alert(`以下のキャッシュが削除されました。:\n${cacheList}`);
 
     // ページをリロード
     window.location.reload();
