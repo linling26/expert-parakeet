@@ -1,4 +1,4 @@
-// ServiceWorker設定
+// ServiceWorkerの設定
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then((registrations) => {
         registrations.forEach((registration) => {
