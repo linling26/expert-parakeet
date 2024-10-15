@@ -96,4 +96,10 @@ clearCacheButton.addEventListener('click', async () => {
     window.location.reload();
 });
 
+// 画面リサイズ
+window.addEventListener('resize', () => {
+    const gameContainer = document.getElementById('GameContainer');
+    const newHeight = window.innerHeight * 0.4 - 20;  // 画面高さの40%
+    gameContainer.style.height = `${newHeight}px`;
+});
 
