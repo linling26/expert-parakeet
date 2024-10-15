@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // バージョン番号（タイムスタンプを使用）
-    const version = `v=${Date.now()}`; 
+    const version = `v-${Date.now()}`;
 
     // CSSとJSファイルのURLにバージョンを追加
     const styleLink = document.getElementById('styleLink');
@@ -20,11 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
             .then((registration) => {
                 console.log('Service Worker registered:', registration);
 
-                // Service Workerがアクティブになったらバージョンを送信
+                // バージョンをService Workerに送信
                 if (registration.active) {
                     registration.active.postMessage({ type: 'SET_VERSION', version });
                 } else {
-                    // Service Workerがアクティブになった際にバージョンを送信
                     navigator.serviceWorker.addEventListener('controllerchange', () => {
                         navigator.serviceWorker.controller?.postMessage({ type: 'SET_VERSION', version });
                     });
