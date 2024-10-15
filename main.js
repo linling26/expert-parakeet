@@ -5,7 +5,7 @@ const fileContent = document.getElementById('fileContent');
 let isTextLoaded = false;
 const isHidden = textContainer.style.display === 'none';
 
-// ボタンのクリックでテキストの表示・非表示を切り替える
+// ボタンのクリックでテキスを読み込む
 loadButton.addEventListener('click', () => {
     
     loadTextFile('/expert-parakeet/documents/sample.txt');
@@ -15,7 +15,7 @@ loadButton.addEventListener('click', () => {
 
 // ボタンのクリックでテキストの表示・非表示を切り替える
 toggleButton.addEventListener('click', () => {
-    const isHidden = textContainer.style.display === 'none';
+    const isHidden = textContainer.style.display === 'block';
 
     if (isHidden) {
         textContainer.style.display = 'block';
