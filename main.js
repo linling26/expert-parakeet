@@ -14,11 +14,12 @@ navigator.serviceWorker.addEventListener('controllerchange', () => {
 const loadButton = document.getElementById('loadButton');
 const toggleButton = document.getElementById('toggleButton');
 const textContainer = document.getElementById('textContainer');
+const mainClass = document.getElementsByClassName('steamhoard-main');
 const fileContent = document.getElementById('fileContent');
 
 let isTextLoaded = false;
 
-// ボタンのクリックでテキスを読み込む
+// ボタンのクリックでテキストを読み込む
 const GITHUB_API_URL = 'https://api.github.com/repos/linling26/expert-parakeet/contents/documents';
 
 // GitHub APIを使ってdocumentsフォルダの内容を取得
@@ -64,9 +65,11 @@ toggleButton.addEventListener('click', () => {
     if (isHidden) {
         textContainer.style.display = 'block';
         toggleButton.textContent = '▲ テキスト非表示';
+        mainClass[0].style.height = 'calc(30vh - 20px)';
     } else {
         textContainer.style.display = 'none';
         toggleButton.textContent = '▼ テキスト表示　';
+        mainClass[0].style.height = 'calc(90vh - 20px)';
     }
 });
 
@@ -95,11 +98,3 @@ clearCacheButton.addEventListener('click', async () => {
     // ページをリロード
     window.location.reload();
 });
-
-// 画面リサイズ
-window.addEventListener('resize', () => {
-    const gameContainer = document.getElementById('GameContainer');
-    const newHeight = window.innerHeight * 0.4 - 20;  // 画面高さの40%
-    gameContainer.style.height = `${newHeight}px`;
-});
-
