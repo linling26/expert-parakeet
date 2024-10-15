@@ -1,3 +1,4 @@
+// ServiceWorker設定
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then((registrations) => {
         registrations.forEach((registration) => {
@@ -5,7 +6,6 @@ if ('serviceWorker' in navigator) {
         });
     });
 }
-
 navigator.serviceWorker.addEventListener('controllerchange', () => {
     console.log('Service Workerが更新されました');
     window.location.reload(); // ページをリロードして新しいキャッシュを使用
