@@ -74,25 +74,26 @@ toggleButton.addEventListener('click', () => {
 const clearCacheButton = document.getElementById('clearCacheButton');
 
 clearCacheButton.addEventListener('click', async () => {
-    // すべてのキャッシュ名を取得
     const cacheNames = await caches.keys();
 
-    // キャッシュを削除
+    // my-cache- で始まるすべてのキャッシュを削除
+    const oldCaches = cacheNames.filter(name => name.startsWith('my-cache-'));
+
     await Promise.all(
-        cacheNames.map((cacheName) => caches.delete(cacheName))
+        oldCaches.map((cacheName) => caches.delete(cacheName))
     );
 
-    // Service Workerの登録を解除
     const registrations = await navigator.serviceWorker.getRegistrations();
     await Promise.all(
         registrations.map((registration) => registration.unregister())
     );
 
-    // キャッシュ名をアラートに表示
-    const cacheList = cacheNames.join('\n');
+    // 削除されたキャッシュ名をアラートで表示
+    const cacheList = oldCaches.join('\n');
     alert(`以下のキャッシュが削除されました:\n${cacheList}`);
 
     // ページをリロード
     window.location.reload();
 });
+
 
