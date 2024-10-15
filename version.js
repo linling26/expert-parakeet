@@ -15,21 +15,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Service Workerの登録とバージョンの送信
     if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker
-                .register('/expert-parakeet/service-worker.js')
-                .then((registration) => {
-                    console.log('Service Worker registered:', registration);
-    
-                    // バージョンをService Workerに送信
-                    registration.active?.postMessage({ type: 'SET_VERSION', version });
-                })
-                .catch((error) => {
-                    console.error('Service Worker registration failed:', error);
-                });
-        });
+        navigator.serviceWorker
+            .register('/expert-parakeet/service-worker.js')
+            .then((registration) => {
+                console.log('Service Worker registered:', registration);
+
+                // Service Workerがアクティブになったらバージョンを送信
+                if (registration.active) {
+                    registration.active.postMessage({ type: 'SET_VERSION', version });
+                } else {
+                    // Service Workerがアクティブになった際にバージョンを送信
+                    navigator.serviceWorker.addEventListener('controllerchange', () => {
+                        navigator.serviceWorker.controller?.postMessage({ type: 'SET_VERSION', version });
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error('Service Worker registration failed:', error);
+            });
     }
-    
+
     console.log(`バージョン: ${version} が適用されました。`);
-    
 });
