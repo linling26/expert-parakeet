@@ -6,6 +6,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+const loadButton = document.getElementById('loadButton');
 const toggleButton = document.getElementById('toggleButton');
 const textContainer = document.getElementById('textContainer');
 const fileContent = document.getElementById('fileContent');
@@ -15,7 +16,7 @@ let isTextLoaded = false;
 // ボタンのクリックでテキスを読み込む
 loadButton.addEventListener('click', () => {
     
-    loadTextFile('/expert-parakeet/documents/sample.txt');
+    loadTextFile('/expert-parakeet/documents');
     isTextLoaded = true;
        
 });
@@ -37,18 +38,29 @@ toggleButton.addEventListener('click', () => {
 // テキストファイルを読み込む関数
 function loadTextFile(filePath) {
     fetch(filePath)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('ファイルの読み込みに失敗しました');
+        .then(response => response.text())
+        .then((html) => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const links = Array.from(doc.querySelectorAll('a'))
+                .map(link => link.href)
+                .filter(href => href.endsWith('.txt'));
+
+            if (links.length === 0) {
+                alert('テキストファイルが見つかりませんでした');
+                return;
             }
-            return response.text();
+
+            const randomFile = links[Math.floor(Math.random() * links.length)];
+            return fetch(randomFile);
         })
+        .then(response => response.text())
         .then(data => {
             fileContent.textContent = data;
         })
         .catch(error => {
             console.error('エラー:', error);
-            fileContent.textContent = 'ファイルの読み込みに失敗しました';
+            alert('ファイルの読み込みに失敗しました');
         });
 }
 
