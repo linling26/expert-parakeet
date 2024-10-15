@@ -70,4 +70,18 @@ toggleButton.addEventListener('click', () => {
     }
 });
 
+// キャッシュクリアボタン
+const clearCacheButton = document.getElementById('clearCacheButton');
+
+clearCacheButton.addEventListener('click', async () => {
+    const cacheNames = await caches.keys();
+    const deletions = cacheNames.map((cacheName) => caches.delete(cacheName));
+    await Promise.all(deletions);
+
+    alert('キャッシュがクリアされました');
+    console.log('すべてのキャッシュが削除されました');
+    window.location.reload(); // ページをリロードして新しいキャッシュを使用
+});
+
+
 
