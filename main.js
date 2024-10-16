@@ -98,3 +98,11 @@ clearCacheButton.addEventListener('click', async () => {
     // ページをリロード
     window.location.reload();
 });
+
+const randomNum = getRandomNumber(1, 10); // 1から10までのランダムな整数
+console.log(randomNum);
+
+// 乱数生成
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
