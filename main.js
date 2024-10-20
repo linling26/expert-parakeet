@@ -109,7 +109,7 @@ function getRandomNumber(min, max) {
 
 // テキストにボタンを埋め込む
 function insertButtonInText() {
-    const buttonHtml = '<button onclick="alert(\'ボタンがクリックされました\')">クリック</button>';
+    const buttonHtml = '<button class="text-like-button" onclick="alert(\'ボタンがクリックされました\')">クリック</button>';
     const textWithButton = `このボタンをクリックしてください: ${buttonHtml}`;
     fileContent.innerHTML = textWithButton;
 }
