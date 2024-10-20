@@ -107,8 +107,6 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const fileContent = document.getElementById('fileContent');
-
 // テキストにボタンを埋め込む
 function insertButtonInText() {
     const buttonHtml = '<button onclick="alert(\'ボタンがクリックされました\')">クリック</button>';
