@@ -215,3 +215,18 @@ body {
     box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.9);
     transform: scale(0.95);
 }
+
+.text-like-button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.text-like-button:hover {
+    text-decoration: none;
+    color: blue;
+}
